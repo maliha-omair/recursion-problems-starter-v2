@@ -12,6 +12,22 @@ sumToN(-8)  // returns null
 ***********************************************************************/
 
 // your code here
+function sumToN(num) {
+  if(num < 0){
+    return null
+  }
+debugger
+  if(num === 0) {
+    return 0
+  }
+
+  return num + sumToN(num - 1)
+
+
+
+}
+
+console.log(sumToN(5)) // returns 15
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
