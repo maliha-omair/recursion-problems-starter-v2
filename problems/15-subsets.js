@@ -15,10 +15,22 @@ Hint: For subsets([1, 2, 3]), there are two kinds of subsets:
 ***********************************************************************/
 
 // your code here
-
+function subsets(arr){
+  if(arr.length === 0){
+    return [[]]
+  }
+  let newSub = subsets(arr.slice(0,arr.length-1))
+  console.log(newSub)
+  return newSub
+}
+subsets([]) // [[]]
+subsets([1]) // [[], [1]]
+subsets([1, 2]) // [[], [1], [2], [1, 2]]
+subsets([1, 2, 3]) // [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = subsets;
 } catch (e) {
   module.exports = null;
 }
+
