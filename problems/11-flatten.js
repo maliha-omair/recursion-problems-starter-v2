@@ -11,7 +11,32 @@ flatten([1, [2, [3]]]); // [1, 2, 3]
 ***********************************************************************/
 
 // your code here
+function flatten(arr){
+  if (arr.length === 0) {
+    return []
+  }
   
+  let res = []
+  for(let i =0; i < arr.length; i++) {
+    // console.log(arr[i])
+    if(Array.isArray(arr[i])){
+      res.push(...flatten(arr[i]))
+    }else {
+      res.push(arr[i])
+    }
+
+    // res.push(arr[i])
+    // res.concat(flatten(arr[i]))
+    
+ 
+  }
+  return res
+
+}
+
+console.log(flatten([1, [2, [3]]]))
+
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = flatten;
