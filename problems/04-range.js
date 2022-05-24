@@ -12,8 +12,18 @@ range(7, 6); // []
 
 
 // your code here
-
-
+function range(num1,num2){
+  if(num2 <= num1){
+    return []
+  }
+  let result = range(num1,num2-1)
+  result.push(num2-1)
+  //console.log(result)
+  return  result
+}
+console.log(range(1, 5)) // [1, 2, 3, 4]
+console.log(range(3, 4)) // [3]
+console.log(range(7, 6)) // []
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = range;
