@@ -60,12 +60,56 @@ The call above should return the tree below:
         }
     }
 }
+Write a recursive function `makeTree(categories, parent)` that takes an array of
+categories objects, each of which have an id property, and a parent property and
+returns a nested tree of those objects using the parent properties to construct
+the tree.
+
+A parent value of null means you are at the bottom of the tree and the category
+has no parent, so the default value parent is be null if no parent is
+provided.
 
 ***********************************************************************/
 
 const makeTree = (categories, parent) => {
   // your code here
+
+let tree = {}
+
+if(tree.parent === null){
+  return tree
+}
+
+let curr = []
+for(let i =0; i < categories.length; i++){
+if(categories[i].parent === parent){
+curr = categories[i].id
+tree[curr] = makeTree(categories, curr)
+
+// tree.parent = parent
+//   console.log(categories[i])
+// makeTree(categories, curr)
+
+}
+}
+
+return tree
+
 };
+
+const categories2 = [
+  { id: 'animals', 'parent': null },
+  { id: 'mammals', 'parent': 'animals' },
+  { id: 'cats', 'parent': 'mammals' },
+  { id: 'dogs', 'parent': 'mammals' },
+  { id: 'chihuahua', 'parent': 'dogs' },
+  { id: 'labrador', 'parent': 'dogs' },
+  { id: 'persian', 'parent': 'cats' },
+  { id: 'siamese', 'parent': 'cats' }
+];
+
+const tree2 = makeTree(categories2, null);
+console.log(tree2)
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

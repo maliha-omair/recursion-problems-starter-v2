@@ -13,6 +13,34 @@ permutations([1, 2, 3]) // [[1, 2, 3], [1, 3, 2],
 ***********************************************************************/
 
 // your code here
+function permutations(array){
+if(array.length === 0) {
+  return array
+}
+
+let num = array.reduce((prod, el) => {
+  return prod * el
+}, 1)
+
+
+let newArr = []
+for (let i = 0; i < num; i++){
+console.log(helper(array, array[i], array[i + 1]))
+// newArr.push()
+}
+}
+
+function helper(arr, first, second){
+  let temp = arr[first]
+  arr[first] = arr[second]
+  arr[second] = temp
+
+  return arr
+}
+
+permutations([1, 2, 3]) // [[1, 2, 3], [1, 3, 2],
+                        // [2, 1, 3], [2, 3, 1],
+                        // [3, 1, 2], [3, 2, 1]]
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

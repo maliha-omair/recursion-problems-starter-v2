@@ -20,13 +20,27 @@ function subsets(arr){
     return [[]]
   }
   let newSub = subsets(arr.slice(0,arr.length-1))
-  console.log(newSub)
-  return newSub
+  let newsub2 = subsets(arr.slice(0, arr.length - 1))
+
+  // console.log(newSub, newsub2)
+  // console.log()
+
+newsub2 = newsub2.map((el) => {
+  el.push(arr[arr.length-1])
+  return el
+  
+})
+
+
+  
+  return [...newSub, ...newsub2]
 }
+
 subsets([]) // [[]]
 subsets([1]) // [[], [1]]
 subsets([1, 2]) // [[], [1], [2], [1, 2]]
 subsets([1, 2, 3]) // [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = subsets;
